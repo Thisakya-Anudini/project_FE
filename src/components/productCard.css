@@ -1,0 +1,16 @@
+.card{
+    width: 100% ;
+    max-width: 400px;
+    border: 1px solid #ccc;
+    background-color: #a7c7d0;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+
+}
+fancy-boarder{
+
+    border: 1px solid #c34b4b;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.5);
+
+}

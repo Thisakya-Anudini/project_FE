@@ -1,0 +1,40 @@
+
+import './App.css'
+import HomePage from './pages/homePage'
+import RegisterPage from './pages/registerPage'
+import LoginPage from './pages/loginPage'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import AdminPage from './pages/adminPage'
+
+
+
+function App(){
+  return(
+    <BrowserRouter>
+    <div className='w-full h-screen flex justify-center items-center'>
+      
+        <Routes path = "/">
+
+        <Route path="/" element={<HomePage />} />
+        <Route path="/register" element={<RegisterPage />} />
+        <Route path="/login" element={<LoginPage />} />
+        <Route path="/test" element={<TestPage />} />
+
+
+
+        <Route path="/admin/*" element={<AdminPage />}/>                            
+
+
+
+        </Routes>
+
+
+
+
+    </div>
+    </BrowserRouter>
+  )
+}
+
+
+export default App
