@@ -1,28 +1,19 @@
+import "./productCard.css";
+
 export default function ProductCard(props) {
   console.log(props);
   return (
-    <div className="max-w-xs rounded-lg overflow-hidden shadow-lg bg-white hover:shadow-2xl transition-shadow duration-300">
-      {/* Product Image */}
+    <div className="max-w-xs rounded-lg shadow-xl p-6 bg-white transition-transform transform hover:scale-105">
+      <h1 className="text-2xl font-bold text-gray-900 truncate">{props.name}</h1>
       <img
-        className="w-full h-64 object-cover transition-transform transform hover:scale-105"
         src={props.image}
         alt={props.name}
+        className="w-full h-56 object-cover rounded-lg mt-4 transition-transform transform hover:scale-110"
       />
-      
-      <div className="p-6">
-        {/* Product Name */}
-        <h1 className="text-2xl font-semibold text-gray-800 hover:text-blue-500 transition-colors duration-200">
-          {props.name}
-        </h1>
-        
-        {/* Product Price */}
-        <p className="text-lg text-gray-600 mt-2">Price: ${props.price}</p>
-        
-        {/* View Details Button */}
-        <button className="mt-4 px-6 py-2 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-50">
-          View details
-        </button>
-      </div>
+      <p className="text-xl font-semibold text-gray-700 mt-3">${props.price}</p>
+      <button className="mt-6 w-full py-3 px-5 bg-gradient-to-r from-blue-500 to-blue-600 text-white rounded-lg shadow-md hover:from-blue-600 hover:to-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-300 transition duration-200 ease-in-out transform hover:scale-105">
+        Add to Cart
+      </button>
     </div>
   );
 }

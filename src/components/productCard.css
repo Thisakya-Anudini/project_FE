@@ -1,16 +1,15 @@
 .card{
-    width: 100% ;
-    max-width: 400px;
-    border: 1px solid #ccc;
-    background-color: #a7c7d0;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width:100%;
+    border:1px solid #5acc5c;
+    border-radius:5px;
+    max-width: 300px;
     overflow: hidden;
-
+    transition: transform 0.2s ;
+    background-color: #abd2df;
 }
-fancy-boarder{
 
-    border: 1px solid #c34b4b;
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.5);
-
-}
+.fancy-border {
+    border: 2px solid #e60f33;
+    border-radius: 5px;
+    padding: 5px;
+  }
