@@ -4,6 +4,7 @@ import { GiShoppingBag } from "react-icons/gi";
 import { IoPeople } from "react-icons/io5";
 import { IoSettings } from "react-icons/io5";
 import ProductsAdminPage from "./admin/productsAdminPage";
+import AddProductPage from "./admin/addProductAdminPage";
 
 export default function AdminPage(){
     return(
@@ -20,6 +21,7 @@ export default function AdminPage(){
                 <Routes path="/*">
                     <Route path="/" element={<h1>Dashboard</h1>}/>
                     <Route path="/products" element={<ProductsAdminPage/>}/>
+                    <Route path="/newProduct" element={<AddProductPage/>}/>
                     <Route path="/users" element={<h1>users</h1>}/>
                     <Route path="/orders" element={<h1>orders</h1>}/>
                     <Route path="/settings" element={<h1>settings</h1>}/>

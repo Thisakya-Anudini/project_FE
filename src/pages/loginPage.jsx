@@ -38,14 +38,14 @@ function login() {
 
 
   return (
-  <div className="w-full h-screen bg-[url('/6.jpg')] bg-cover bg-center flex justify-center items-center">
+  <div className="w-full h-screen bg-[url('/1.jpg')] bg-cover bg-center flex justify-center items-center">
 
 
-      <div className="w-[500px] h-[380px] backdrop-blur-lg shadow-2xl rounded-[5px] relative gap-[15px] text-white flex flex-col items-center justify-center">
-        <h1 className="absolute top-[5px] text-3xl font-bold text-center ">Login</h1>
+      <div className="w-[500px] h-[400px] backdrop-blur-md shadow-2xl rounded-[30px] relative gap-[20px] text-white flex flex-col items-center justify-center">
+        <h1 className="absolute top-[10px] text-3xl font-bold text-center mt-3">Login</h1>
         
-        <div className="w-[350px] flex flex-col text-left mt-3 ">
-          <span className="text-lg">Email</span>
+        <div className="w-[350px] flex flex-col text-left ">
+          <span className="text-lg mt-13">Email</span>
           <input onChange={
             (e) => {
                 setEmail(e.target.value);
@@ -54,7 +54,7 @@ function login() {
           type="text" className="w-[350px] h-[40px] border border-white rounded-xl" />
         </div>
 
-        <div className="w-[350px] flex flex-col text-left">
+        <div className="w-[350px] flex flex-col text-left ">
           <span className="text-lg">Password</span>
           <input onChange={
             (e) => {
@@ -65,10 +65,10 @@ function login() {
           type="password" className="w-[350px] h-[40px] border border-white rounded-xl" />
         </div>
 
-        <button onClick={login} className="w-[350px] h-[40px] bg-blue-700 rounded-xl text-white text-lg mt-6 hover:bg-blue-600 transition-all duration-300">
+        <button onClick={login} className="w-[350px] h-[40px] mt-6  bg-blue-500 rounded-xl text-white text-lg hover:bg-blue-600 transition-all duration-300">
           Login
         </button>
-        <p> Don't have an account? <Link to="/register" className="text-blue-400 font-semibold" >Sign up</Link> from here </p>
+        <p> Don't have an account? <Link to="/register" className= "text-blue-500 font-semibold">Sign up</Link> from here </p>
       </div>
     </div>
   );
