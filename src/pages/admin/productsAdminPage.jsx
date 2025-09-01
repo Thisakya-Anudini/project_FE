@@ -5,10 +5,10 @@ import { BiEdit, BiPlus, BiTrash } from "react-icons/bi";
 import { Link, useNavigate } from "react-router-dom";
 
 export default function ProductsAdminPage() {
-	const [products, setProducts] = useState([]);
-	const [isLoading, setIsLoading] = useState(true);
+	const [products, setProducts] = useState([]);   // array of products
+	const [isLoading, setIsLoading] = useState(true);  // loading state
 
-	const navigate = useNavigate();
+	const navigate = useNavigate();// page refresh smooth 
 
 	useEffect(() => {
 		if (isLoading) {
@@ -48,7 +48,7 @@ export default function ProductsAdminPage() {
 										className="w-[50px] h-[50px]"
 									/>
 								</td>
-								<td className="p-[10px]">{product.productId}</td>
+								<td className="p-[10px]">{product.productId}</td>                
 								<td className="p-[10px]">{product.name}</td>
 								<td className="p-[10px]">{product.price}</td>
 								<td className="p-[10px]">{product.labelledPrice}</td>
