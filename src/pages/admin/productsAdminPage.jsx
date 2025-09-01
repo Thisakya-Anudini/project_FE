@@ -3,27 +3,30 @@ import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { BiEdit, BiPlus, BiTrash } from "react-icons/bi";
 import { Link, useNavigate } from "react-router-dom";
+import Loader from "../../components/loader";
 
 export default function ProductsAdminPage() {
 	const [products, setProducts] = useState([]);   // array of products
-	const [isLoading, setIsLoading] = useState(true);  // loading state
+	const [isLoading, setIsLoading] = useState(true);  // loading state first time 
 
 	const navigate = useNavigate();// page refresh smooth 
 
-	useEffect(() => {
-		if (isLoading) {
+	useEffect(() => {// get all products
+		if (isLoading) {// if loading is happening  call the backend and get data . otherwise it may cause a loop and crash due to setter function 
 			axios
-				.get(import.meta.env.VITE_BACKEND_URL + "/api/products")
+				.get(import.meta.env.VITE_BACKEND_URL + "/api/products")// get all products
 				.then((res) => {
-					setProducts(res.data);
-					setIsLoading(false);
+					setProducts(res.data);// set products
+					setIsLoading(false);// set loading to false because loading is done
 				});
 		}
-	}, [isLoading]);
+	}, [isLoading]);// dependency array
 
 	return (
 		<div className="w-full h-full border-[3px]">
-			{isLoading ? null : (
+			{isLoading ? (
+				<Loader />
+			) : (
 				<table>
 					<thead>
 						<tr>
@@ -78,7 +81,7 @@ export default function ProductsAdminPage() {
 													console.log("Product deleted successfully");
 													console.log(res.data);
 													toast.success("Product deleted successfully");
-													setIsLoading(!isLoading);
+													setIsLoading(!isLoading);   // page load after delete
 												})
 												.catch((error) => {
 													console.error("Error deleting product:", error);

@@ -6,6 +6,8 @@ import { IoSettings } from "react-icons/io5";
 import ProductsAdminPage from "./admin/productsAdminPage";
 import AddProductPage from "./admin/addProductAdminPage";
 
+import UpdateProductPage from "./admin/updateProduct";
+
 export default function AdminPage(){
     return(
         <div className="w-full h-screen  flex">
@@ -25,6 +27,7 @@ export default function AdminPage(){
                     <Route path="/users" element={<h1>users</h1>}/>
                     <Route path="/orders" element={<h1>orders</h1>}/>
                     <Route path="/settings" element={<h1>settings</h1>}/>
+                    <Route path="/updateProduct" element={<UpdateProductPage/>}/>
                 </Routes>
             </div>
             
