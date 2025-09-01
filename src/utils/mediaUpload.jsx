@@ -30,7 +30,7 @@ export default function mediaUpload(file) {
                 .getPublicUrl(fileName).data;
 
             console.log("File uploaded successfully", publicUrl);
-            toast.success("File uploaded successfully");
+            
             resolve(publicUrl);
         })
         .catch(() => {

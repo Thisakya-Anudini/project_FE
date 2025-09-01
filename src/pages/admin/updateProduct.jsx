@@ -5,7 +5,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import mediaUpload from "../../utils/mediaUpload"; // Assuming you are importing mediaUpload correctly
 
 export default function UpdateProductPage() {
-    const location = useLocation();
+    const location = useLocation(); //this is the location object, which contains the state passed from the previous page
     const [productId, setProductId] = useState(location.state.productId);
     const [productName, setProductName] = useState(location.state.name);
     const [alternativeNames, setAlternativeNames] = useState(location.state.altNames.join(","));
@@ -20,7 +20,7 @@ export default function UpdateProductPage() {
 
 
 
-    console.log(location);
+    console.log(location); // Log the location object
 
     // Handle form submission
     async function handleSubmit() {
@@ -72,8 +72,8 @@ export default function UpdateProductPage() {
         }
     })
     .then((res) => {
-        console.log("Product added successfully:", res.data);  // Log the response from the server
-        toast.success("Product added successfully");
+        console.log("Product updated successfully:", res.data);  // Log the response from the server
+        toast.success("Product updated successfully");
         navigate("/admin/products");
     })
     .catch((error) => {
