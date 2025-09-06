@@ -5,8 +5,12 @@ import { IoPeople } from "react-icons/io5";
 import { IoSettings } from "react-icons/io5";
 import ProductsAdminPage from "./admin/productsAdminPage";
 import AddProductPage from "./admin/addProductAdminPage";
-
 import UpdateProductPage from "./admin/updateProduct";
+import OrdersPageAdmin from "./admin/ordersPageAdmin";
+
+
+
+
 
 export default function AdminPage(){
     return(
@@ -25,9 +29,10 @@ export default function AdminPage(){
                     <Route path="/products" element={<ProductsAdminPage/>}/>
                     <Route path="/newProduct" element={<AddProductPage/>}/>
                     <Route path="/users" element={<h1>users</h1>}/>
-                    <Route path="/orders" element={<h1>orders</h1>}/>
+                    <Route path="/orders" element={<OrdersPageAdmin/>}/>
                     <Route path="/settings" element={<h1>settings</h1>}/>
                     <Route path="/updateProduct" element={<UpdateProductPage/>}/>
+                   
                 </Routes>
             </div>
             

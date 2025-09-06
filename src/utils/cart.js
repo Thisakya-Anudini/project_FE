@@ -42,7 +42,7 @@ export function getCart(){
     return cart;// return the array 
 }
 
-export function addToCart(product , qty){   // add a product to the cart
+export function addToCart(product , quantity){   // add a product to the cart
 
     const cart = getCart()// load the cart
 
@@ -54,7 +54,7 @@ export function addToCart(product , qty){   // add a product to the cart
         cart.push(// add the product to the cart
             {
                 productId: product.productId,
-                quantity: qty,
+                quantity: quantity,
                 price: product.price,
                 name: product.name,
                 altNames: product.altNames,
@@ -63,7 +63,7 @@ export function addToCart(product , qty){   // add a product to the cart
         )
         localStorage.setItem("cart", JSON.stringify(cart));    // save the cart to local storage
     }else{
-        const newQty = cart[existingProductIndex].quantity + qty;// if the product is in the cart, add the new quantity to existing quantity
+        const newQty = cart[existingProductIndex].quantity + quantity;// if the product is in the cart, add the new quantity to existing quantity
         if(newQty <= 0){  //check is new quantity is less than zero or zero , otherwise  quantity may be  negative  or zero 
             const newCart = cart.filter((item, index)=>{   // remove that product from the cart if so  and consider  other products
                 return index !== existingProductIndex;  //  filter out the product

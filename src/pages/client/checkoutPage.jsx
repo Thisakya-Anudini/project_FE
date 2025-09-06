@@ -4,11 +4,12 @@ import { useLocation, useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 import axios from "axios";
 
+
 export default function CheckoutPage() {
   const location = useLocation();
   const navigate = useNavigate();
 
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(null); // user details after taking token and decoding
   const [name, setName] = useState("");
   const [address, setAddress] = useState("");
   const [phone, setPhone] = useState("");
@@ -70,15 +71,18 @@ export default function CheckoutPage() {
       address: address,
       phone: phone,
       items: [],
+      total: getTotal(),  
     };
     cart.forEach((item) => {
       order.items.push({
         productId: item.productId,
-        qty: item.quantity,
+        quantity: item.quantity,
       });
     });
+    console.log("Placing order with:", order);
 
     try {
+      
       await axios.post(
         import.meta.env.VITE_BACKEND_URL + "/api/orders",
         order,
@@ -89,8 +93,10 @@ export default function CheckoutPage() {
         }
       );
       toast.success("Order placed successfully");
+      
     } catch (err) {
       console.error(err);
+
       toast.error("Failed to place order");
       return;
     }
