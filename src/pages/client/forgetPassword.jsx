@@ -2,12 +2,14 @@ import axios from "axios";
 import { useState } from "react";
 import toast from "react-hot-toast";
 
+
 export default function ForgetPasswordPage() {
 	const [emailSent, setEmailSent] = useState(false);
 	const [email, setEmail] = useState("");
     const [otp, setOtp] = useState("");
     const [newPassword, setNewPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
+
 
     async function sendOTP(){
         try{

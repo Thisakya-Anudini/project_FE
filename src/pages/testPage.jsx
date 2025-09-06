@@ -4,7 +4,7 @@ export default function TestPage() {
 
     return (
         <div>
-            <Loader/>
+            
         </div>
     );
 }

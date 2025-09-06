@@ -8,15 +8,18 @@ export default function CartPage() {
 	const navigate = useNavigate();
 	console.log(cart);
 	return (
-		<div className="w-[100vw]  max-w-[100vw] h-screen flex flex-col px-[10px] py-[50px] items-center ">
-			{cart.map((item) => { // map through the cart
+		<div className="w-[100vw] max-w-[100vw] h-screen flex flex-col px-[10px] py-[40px] items-center">
+			{cart.map((item) => {
 				return (
 					<div
-						key={item.productId} 
-						className="w-full  md:w-[800px] h-[200px] md:h-[100px] m-[10px] shadow-2xl flex flex-row items-center relative "
+						key={item.productId}
+						className="w-full md:w-[800px] h-[200px] md:h-[100px] m-[10px] shadow-2xl flex flex-row items-center relative "
 					>
 						<div className="md:w-[100px] w-[200px] justify-center items-center flex flex-col text-2xl md:text-md">
-							<img src={item.image} className="w-[100px] h-[100px] object-cover"/>
+							<img
+								src={item.image}
+								className="w-[100px] h-[100px] object-cover"
+							/>
 							<div className=" h-full   flex-col justify-center pl-[10px] md:hidden flex">
 								<span className=" font-bold text-center md:text-left">
 									{item.name}
@@ -30,23 +33,21 @@ export default function CartPage() {
 								</span>
 							</div>
 						</div>
-						<div className="w-[300px] h-full   flex-col justify-center pl-[10px] hidden md:flex">
+						<div className="w-[320px] h-full   flex-col justify-center pl-[10px] hidden md:flex">
 							<span className=" font-bold text-center md:text-left">
 								{item.name}
 							</span>
-
 							{/* price */}
-							<span className=" font-semibold text-center md:text-left ">
+							<span className=" font-semibold text-center md:text-left">
 								{item.price.toLocaleString("en-US", {
 									minimumFractionDigits: 2,
 									maximumFractionDigits: 2,
 								})}
 							</span>
-                            
 						</div>
-						<div className="w-[200px] h-full text-2xl md:text-md  flex flex-row justify-center items-center ">
+						<div className="w-[190px] h-full text-4xl md:text-md  flex flex-row justify-center items-center ">
 							<button
-								className="flex justify-center items-center w-[25px] h-[25px] rounded-lg bg-blue-700 text-white cursor-pointer hover:bg-blue-400"
+								className="flex justify-center items-center w-[30px] rounded-lg bg-accent text-white cursor-pointer hover:bg-blue-400"
 								onClick={() => {
 									addToCart(item, -1);
 									setCart(getCart());
@@ -56,7 +57,7 @@ export default function CartPage() {
 							</button>
 							<span className="mx-[10px]">{item.quantity}</span>
 							<button
-								className="flex justify-center items-center w-[25px] h-[25px] rounded-lg bg-blue-700 text-white cursor-pointer hover:bg-blue-400"
+								className="flex justify-center items-center w-[30px] rounded-lg bg-accent text-white cursor-pointer hover:bg-blue-400"
 								onClick={() => {
 									addToCart(item, 1);
 									setCart(getCart());
@@ -65,7 +66,7 @@ export default function CartPage() {
 								+
 							</button>
 						</div>
-						<div className="w-[185px]  text-2xl md:text-md h-full flex justify-end items-center pr-[10px]">
+						<div className="w-[190px] text-3xl md:text-md h-full flex justify-end items-center pr-[10px]">
 							{/* total quantity * price */}
 							<span className="font-semibold">
 								{(item.quantity * item.price).toLocaleString("en-US", {
@@ -87,7 +88,7 @@ export default function CartPage() {
 				);
 			})}
 			<div className="md:w-[800px] w-full h-[100px] m-[10px] p-[10px] shadow-2xl flex flex-row items-center justify-end relative">
-				<span className="font-bold text-3xl ">
+				<span className="font-bold text-2xl ">
 					Total:{" "}
 					{getTotal().toLocaleString("en-US", {
 						minimumFractionDigits: 2,
@@ -95,7 +96,7 @@ export default function CartPage() {
 					})}
 				</span>
 				<button
-					className="absolute left-[10px] w-[200px] text-2xl font-semibold md:text-md md:w-[150px] h-[50px] cursor-pointer rounded-lg shadow-2xl   bg-amber-800   text-white hover:bg-white hover:text-amber-800  border-2 border-amber-800 " 
+					className="absolute left-[10px] w-[200px] text-2xl md:text-md md:w-[150px] h-[50px] cursor-pointer rounded-lg shadow-2xl bg-accent border-[2px] border-accent text-white hover:bg-white hover:text-accent"
 					onClick={() => {
 						navigate("/checkout", { state: { items: cart } });
 					}}
@@ -105,7 +106,4 @@ export default function CartPage() {
 			</div>
 		</div>
 	);
-
 }
-
-

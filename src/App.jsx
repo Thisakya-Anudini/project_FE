@@ -1,38 +1,37 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import "./App.css";
+import HomePage from "./pages/homePage";
+import LoginPage from "./pages/loginPage";
+import RegisterPage from "./pages/registerPage";
+import AdminPage from "./pages/adminPage";
+import TestPage from "./pages/testPage";
+import { Toaster } from "react-hot-toast";
+import ClientWebPage from "./pages/client/clientPage";
+import { GoogleOAuthProvider } from "@react-oauth/google";
+import ForgetPasswordPage from "./pages/client/forgetPassword";
 
-import './App.css';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+const clientId = "652328298808-1fncp790aul4dvr69iq16rqjbdsua96o.apps.googleusercontent.com"
 
-import LoginPage from './pages/loginPage';
-import RegisterPage from './pages/registerPage';
-import AdminPage from './pages/adminPage';
-import TestPage from './pages/testPage';
-import { Toaster } from 'react-hot-toast';
-import ClientWebPage from './pages/client/clientPage';
 
 
 function App() {
-  return (
-    <BrowserRouter>
-      <div className="w-full h-screen flex justify-center items-center">
-        <Toaster position="top-right"/>
-        <Routes>
-
-          <Route path="/login" element={<LoginPage />} />
-          <Route path="/register" element={<RegisterPage />} />
-          <Route path="/admin/*" element={<AdminPage />} />
-          <Route path="/test" element={<TestPage />} />
-          <Route path="/*" element={<ClientWebPage/>} />
-
-
-
-
-
-
-
-        </Routes>
-      </div>
-    </BrowserRouter>
-  );
+	return (
+		<BrowserRouter>
+			<GoogleOAuthProvider clientId={clientId}>
+				<div className="w-full h-screen flex justify-center items-center bg-primary text-secondary">
+					<Toaster position="top-right" />
+					<Routes path="/">
+						<Route path="/login" element={<LoginPage />} />
+						<Route path="/test" element={<TestPage />} />
+						<Route path="/register" element={<RegisterPage />} />
+						<Route path="/admin/*" element={<AdminPage />} />
+						<Route path="/forget" element={<ForgetPasswordPage/>}/>
+						<Route path="/*" element={<ClientWebPage />} />
+					</Routes>
+				</div>
+			</GoogleOAuthProvider>
+		</BrowserRouter>
+	);
 }
 
 export default App;
